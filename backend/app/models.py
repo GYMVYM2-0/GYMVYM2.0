@@ -1,9 +1,10 @@
 # 데이터베이스 모델을 정의
 from sqlalchemy import Column, Integer, String
-from .database import Base as DatabaseBase
+from .database import Base
 
-class Item(DatabaseBase):
-    __tablename__ = "items"
+class User(Base):
+    __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
+    email = Column(String, unique=True, index=True)
+    hashed_password = Column(String)
