@@ -10,13 +10,10 @@ from backend.app.database import Base
 class Gym(Base):
     __tablename__ = "gyms_gym"
 
-    # gym_id = Column(Integer, primary_key=True, index=True)
     gym_id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     gym_name = Column(String, nullable=False)
     gym_address = Column(String, nullable=False)
     owner_id = Column(Integer, ForeignKey("users_user.user_id"), nullable=False)
-
-    # owner = relationship("User", back_populates="gyms")
     owner = relationship("User", back_populates="gyms")
 
 class Gym(BaseModel):
